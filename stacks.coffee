@@ -1,20 +1,20 @@
 class Stack
-  constructor: ()->
-    @.count = 0
-    @.stack = {}
+	constructor: ()->
+		@.count = 0
+		@.stack = {}
   
-  push: (item)->
-    @.count += 1
-    @.stack[@.count] = item
+	push: (item)->
+		@.count += 1
+		@.stack[@.count] = item
   
-  pop: ()->
-    delete @.stack[@.count]
-    
+	pop: ()->
+		delete @.stack[@.count]
+	
   
-  peek: ()-> console.log @.stack
-    
+	peek: ()-> console.log @.stack
+	
 
-MyStack = new Stack();
+MyStack = new Stack()
 
 MyStack.push('mmm')
 MyStack.peek()
