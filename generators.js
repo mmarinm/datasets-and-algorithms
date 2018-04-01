@@ -24,3 +24,12 @@ for (let ninja of NinjaGenerator()) {
 }
 
 console.log(ninjas)
+
+function* Gen(val) {
+    val = yield val * 2
+    yield val
+}
+
+const iterator2 = Gen(2)
+let b1 = iterator2.next(3).value;
+let b2 = iterator2.next(4).value;
