@@ -40,6 +40,52 @@ class LinkedList
             prevNode.next = currentNode.next
             @length--
 
+    isEmpty: ()-> @length is 0
+
+
+    indexOf: (element)->
+        currentNode = @head
+        index = -1
+
+        while currentNode
+            index++
+            if currentNode.element is element then return index
+            currentNode = currentNode.next
+
+        return -1
+
+    
+    elementAt: (index)->
+        currentNode = @head
+        count = 0
+        while count < index
+            count++
+            currentNode = currentNode.next
+        
+        currentNode.element
+
+
+    addAt: (index, element)->
+        node = new Node(element)
+
+        currentNode = @head
+        prevNode = null
+        currentIndex = 0
+
+        if index > @length then return false
+
+        if index is 0
+            node.next = currentNode
+            @head = node
+        else
+            while currentIndex < index
+                currentIndex++
+                prevNode = currentNode
+                currentNode = currentNode.next
+            
+            prevNode.next = node
+            node.next = currentNode
+
     print: ()->
         currentNode = @head
 
@@ -62,4 +108,17 @@ mylist.remove(3)
 mylist.print()
 console.log '-------------------'
 console.log mylist.size()
+console.log '-------------------'
+console.log mylist.indexOf(2)
+console.log mylist.indexOf(99)
+console.log '-------------------'
+console.log mylist.elementAt(1)
+console.log '-------------------'
+console.log '-------------------'
+mylist.addAt(0, 8)
+mylist.print()
+mylist.addAt(2, 10)
+mylist.print()
+mylist.addAt(10, 100)
+mylist.print()
 console.log '-------------------'
