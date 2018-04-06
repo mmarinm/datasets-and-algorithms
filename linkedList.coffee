@@ -24,6 +24,21 @@ class LinkedList
             currentNode.next = node
         @length++
 
+    remove: (element)->
+        if @head.element is element
+            @head = @head.next
+            @length--
+
+        else
+            currentNode = @head
+            prevNode = null
+            
+            while currentNode.element isnt element
+                prevNode = currentNode
+                currentNode = currentNode.next
+
+            prevNode.next = currentNode.next
+            @length--
 
     print: ()->
         currentNode = @head
@@ -40,3 +55,11 @@ mylist.add(2)
 mylist.add(3)
 mylist.add(4)
 mylist.print()
+console.log '-------------------'
+console.log mylist.size()
+console.log '-------------------'
+mylist.remove(3)
+mylist.print()
+console.log '-------------------'
+console.log mylist.size()
+console.log '-------------------'
