@@ -18,18 +18,22 @@ function* NinjaGenerator() {
     yield "Hanzo";
 }
 
-const ninjas = []
+const ninjas = [];
 for (let ninja of NinjaGenerator()) {
-    ninjas.push(ninja)
+    ninjas.push(ninja);
 }
 
-console.log(ninjas)
+console.log(ninjas);
 
 function* Gen(val) {
-    val = yield val * 2
-    yield val
+    val = yield val * 2;
+    yield val;
 }
 
-const iterator2 = Gen(2)
+const iterator2 = Gen(2);
 let b1 = iterator2.next(3).value;
 let b2 = iterator2.next(4).value;
+
+const A = ["C", "D", "E", "F", "G"];
+const B = [3, 0, 4, 1, 2];
+
